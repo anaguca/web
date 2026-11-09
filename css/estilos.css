@@ -1,0 +1,322 @@
+/* =========================================================
+   NubeSMR · Hoja de estilos
+   ========================================================= */
+
+/* ---------- 1. Variables de color ----------
+   Si cambias un color aquí, cambia en toda la página. */
+:root {
+  --color-principal: #1d6fb8;
+  --color-acento: #e07a1f;
+  --color-fondo: #f6f4ef;
+  --color-fondo-alt: #e9eef2;
+  --color-tarjeta: #ffffff;
+  --color-texto: #14212b;
+  --color-texto-suave: #4a5663;
+}
+
+/* Modo oscuro: el JS añade la clase "oscuro" al <body>
+   y solo cambiamos el valor de las variables */
+body.oscuro {
+  --color-fondo: #14212b;
+  --color-fondo-alt: #1e3140;
+  --color-tarjeta: #23394a;
+  --color-texto: #f6f4ef;
+  --color-texto-suave: #bfd3e0;
+}
+
+/* ---------- 2. Reset básico ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* desplazamiento suave al pulsar el menú */
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ---------- 3. Utilidades ---------- */
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contenedor--estrecho {
+  max-width: 600px;
+}
+
+.boton {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--color-acento);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.boton:hover {
+  opacity: 0.85;
+}
+
+/* ---------- 4. Cabecera y menú ---------- */
+.cabecera {
+  position: sticky; /* se queda fija arriba al hacer scroll */
+  top: 0;
+  background: var(--color-texto);
+  z-index: 10;
+}
+
+body.oscuro .cabecera {
+  background: #0a151d;
+}
+
+.cabecera__fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-acento);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: var(--color-acento);
+}
+
+.boton-tema {
+  padding: 6px 12px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* El botón ☰ está oculto en pantallas grandes */
+.boton-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ---------- 5. Portada ---------- */
+.portada {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-principal), #14212b);
+  color: #ffffff;
+}
+
+.portada h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.portada p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.resaltado {
+  color: var(--color-acento);
+}
+
+/* ---------- 6. Secciones y tarjetas ---------- */
+.seccion {
+  padding: 70px 0;
+}
+
+.seccion--gris {
+  background: var(--color-fondo-alt);
+}
+
+.seccion h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Rejilla: tantas columnas como quepan, mínimo 250px cada una */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta h3 {
+  color: var(--color-principal);
+  margin-bottom: 10px;
+}
+
+body.oscuro .tarjeta h3 {
+  color: #7fb8e6;
+}
+
+.tarjeta p {
+  color: var(--color-texto-suave);
+}
+
+/* ---------- 7. Planes ---------- */
+.plan {
+  text-align: center;
+}
+
+.precio {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 10px 0 20px;
+}
+
+.tarjeta .precio {
+  color: var(--color-texto);
+}
+
+.precio span {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.plan ul {
+  list-style: none;
+}
+
+.plan li {
+  padding: 8px 0;
+  border-top: 1px solid var(--color-fondo-alt);
+}
+
+.plan--destacado {
+  border: 3px solid var(--color-acento);
+}
+
+/* ---------- 8. Formulario ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+input,
+textarea {
+  padding: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #c9d3db;
+  border-radius: 8px;
+  background: var(--color-tarjeta);
+  color: var(--color-texto);
+}
+
+/* El JS añade la clase "error" al campo mal rellenado */
+input.error,
+textarea.error {
+  border-color: #c0392b;
+}
+
+form .boton {
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+.aviso {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.aviso--error {
+  color: #c0392b;
+}
+
+.aviso--ok {
+  color: #1e8449;
+}
+
+/* ---------- 9. Pie ---------- */
+.pie {
+  padding: 24px 0;
+  text-align: center;
+  background: var(--color-texto);
+  color: #bfd3e0;
+}
+
+body.oscuro .pie {
+  background: #0a151d;
+}
+
+/* ---------- 10. Móvil (pantallas de menos de 700px) ---------- */
+@media (max-width: 700px) {
+  .boton-menu {
+    display: block;
+  }
+
+  /* El menú se oculta y se coloca en columna debajo de la cabecera */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 20px;
+    background: var(--color-texto);
+  }
+
+  /* El JS añade la clase "abierto" al pulsar ☰ */
+  .menu.abierto {
+    display: flex;
+  }
+
+  .portada h1 {
+    font-size: 2rem;
+  }
+}
